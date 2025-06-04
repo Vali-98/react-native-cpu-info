@@ -1,12 +1,12 @@
 #import "ReactNativeCpuInfo.h"
+#import <Foundation/Foundation.h>
 
 @implementation ReactNativeCpuInfo
 RCT_EXPORT_MODULE()
 
-- (NSNumber *)multiply:(double)a b:(double)b {
-    NSNumber *result = @(a * b);
-
-    return result;
+- (NSNumber *)getThreads {
+    int processorCount = [[NSProcessInfo processInfo] processorCount];
+    return @(processorCount);
 }
 
 - (std::shared_ptr<facebook::react::TurboModule>)getTurboModule:

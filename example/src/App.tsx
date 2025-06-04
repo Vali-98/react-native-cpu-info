@@ -1,12 +1,11 @@
 import { Text, View, StyleSheet } from 'react-native';
-import { multiply } from '@vali98/react-native-cpu-info';
+import { getThreads } from '@vali98/react-native-cpu-info';
 
-const result = multiply(3, 7);
 
 export default function App() {
   return (
     <View style={styles.container}>
-      <Text>Result: {result}</Text>
+      <Text>Thread Count: {getThreads()}</Text>
     </View>
   );
 }

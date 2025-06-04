@@ -2,6 +2,7 @@ package com.vali98.reactnativecpuinfo
 
 import com.facebook.react.bridge.ReactApplicationContext
 import com.facebook.react.module.annotations.ReactModule
+import java.lang.Runtime
 
 @ReactModule(name = ReactNativeCpuInfoModule.NAME)
 class ReactNativeCpuInfoModule(reactContext: ReactApplicationContext) :
@@ -11,10 +12,8 @@ class ReactNativeCpuInfoModule(reactContext: ReactApplicationContext) :
     return NAME
   }
 
-  // Example method
-  // See https://reactnative.dev/docs/native-modules-android
-  override fun multiply(a: Double, b: Double): Double {
-    return a * b
+  override fun getThreads(): Double {
+    return Runtime.getRuntime().availableProcessors().toDouble()
   }
 
   companion object {
