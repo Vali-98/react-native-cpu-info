@@ -1,14 +1,15 @@
 import { Text, View, StyleSheet } from 'react-native';
 import { getThreads } from '@vali98/react-native-cpu-info';
 
-
-export default function App() {
+const App = () => {
   return (
     <View style={styles.container}>
       <Text>Thread Count: {getThreads()}</Text>
     </View>
   );
 }
+
+export default App
 
 const styles = StyleSheet.create({
   container: {
