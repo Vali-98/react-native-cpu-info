@@ -12,11 +12,11 @@ npm install @vali98/react-native-cpu-info
 
 
 ```js
-import { multiply } from '@vali98/react-native-cpu-info';
+import { getThreads } from '@vali98/react-native-cpu-info';
 
 // ...
 
-const result = multiply(3, 7);
+const result = getThreads(); // number
 ```
 
 
