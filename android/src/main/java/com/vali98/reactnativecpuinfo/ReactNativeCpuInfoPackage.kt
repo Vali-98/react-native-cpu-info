@@ -8,26 +8,28 @@ import com.facebook.react.module.model.ReactModuleInfoProvider
 import java.util.HashMap
 
 class ReactNativeCpuInfoPackage : BaseReactPackage() {
-  override fun getModule(name: String, reactContext: ReactApplicationContext): NativeModule? {
-    return if (name == ReactNativeCpuInfoModule.NAME) {
+  override fun getModule(
+    name: String,
+    reactContext: ReactApplicationContext,
+  ): NativeModule? =
+    if (name == ReactNativeCpuInfoModule.NAME) {
       ReactNativeCpuInfoModule(reactContext)
     } else {
       null
     }
-  }
 
-  override fun getReactModuleInfoProvider(): ReactModuleInfoProvider {
-    return ReactModuleInfoProvider {
+  override fun getReactModuleInfoProvider(): ReactModuleInfoProvider =
+    ReactModuleInfoProvider {
       val moduleInfos: MutableMap<String, ReactModuleInfo> = HashMap()
-      moduleInfos[ReactNativeCpuInfoModule.NAME] = ReactModuleInfo(
-        ReactNativeCpuInfoModule.NAME,
-        ReactNativeCpuInfoModule.NAME,
-        false,  // canOverrideExistingModule
-        false,  // needsEagerInit
-        false,  // isCxxModule
-        true // isTurboModule
-      )
+      moduleInfos[ReactNativeCpuInfoModule.NAME] =
+        ReactModuleInfo(
+          ReactNativeCpuInfoModule.NAME,
+          ReactNativeCpuInfoModule.NAME,
+          false, // canOverrideExistingModule
+          false, // needsEagerInit
+          false, // isCxxModule
+          true, // isTurboModule
+        )
       moduleInfos
     }
-  }
 }

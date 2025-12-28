@@ -1,18 +1,30 @@
 #import "ReactNativeCpuInfo.h"
+#import <React/RCTLog.h>
 #import <Foundation/Foundation.h>
 
 @implementation ReactNativeCpuInfo
+
 RCT_EXPORT_MODULE()
 
-- (NSNumber *)getThreads {
-    int processorCount = [[NSProcessInfo processInfo] processorCount];
+// Returns the number of threads (CPU cores)
+RCT_EXPORT_BLOCKING_SYNCHRONOUS_METHOD(getThreads)
+{
+    int processorCount = (int)[[NSProcessInfo processInfo] processorCount];
     return @(processorCount);
 }
 
-- (std::shared_ptr<facebook::react::TurboModule>)getTurboModule:
-    (const facebook::react::ObjCTurboModule::InitParams &)params
+// Stub for getCpuFeatures
+RCT_EXPORT_METHOD(getCpuFeatures:(RCTPromiseResolveBlock)resolve
+                  rejecter:(RCTPromiseRejectBlock)reject)
 {
-    return std::make_shared<facebook::react::NativeReactNativeCpuInfoSpecJSI>(params);
+    NSDictionary *cpuFeatures = @{
+        @"armv8": @YES,
+        @"adreno": @NO,
+        @"hexagon": @NO,
+        @"dotprod": @NO,   
+        @"i8mm": @NO         
+    };
+    resolve(cpuFeatures);
 }
 
 @end
