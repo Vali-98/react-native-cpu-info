@@ -1,6 +1,6 @@
 {
   "name": "@vali98/react-native-cpu-info",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "A module for getting cpu info",
   "main": "./lib/module/index.js",
   "types": "./lib/typescript/src/index.d.ts",
