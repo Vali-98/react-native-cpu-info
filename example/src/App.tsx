@@ -1,5 +1,9 @@
 import { Text, View, StyleSheet } from 'react-native';
-import { getThreads, getCpuFeatures } from '@vali98/react-native-cpu-info';
+import {
+  getThreads,
+  getCpuFeatures,
+  getTotalMemory,
+} from '@vali98/react-native-cpu-info';
 import { useEffect, useState } from 'react';
 
 const App = () => {
@@ -12,6 +16,7 @@ const App = () => {
     <View style={styles.container}>
       <Text>Thread Count: {getThreads()}</Text>
       <Text>{JSON.stringify(feats)}</Text>
+      <Text>Memory: {getTotalMemory()}</Text>
     </View>
   );
 };
