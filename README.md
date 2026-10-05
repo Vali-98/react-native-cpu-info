@@ -12,11 +12,12 @@ npm install @vali98/react-native-cpu-info
 
 
 ```js
-import { getThreads } from '@vali98/react-native-cpu-info';
+import { getThreads, getTotalMemory } from '@vali98/react-native-cpu-info';
 
 // ...
 
 const result = getThreads(); // number
+const totalMemoryBytes = getTotalMemory(); // number of bytes
 ```
 
 

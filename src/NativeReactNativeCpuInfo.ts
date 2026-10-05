@@ -11,6 +11,7 @@ export interface CpuFeatures {
 
 export interface Spec extends TurboModule {
   getThreads(): number;
+  getTotalMemory(): number;
   getCpuFeatures(): Promise<CpuFeatures>;
 }
 

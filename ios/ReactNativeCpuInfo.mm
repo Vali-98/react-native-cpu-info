@@ -13,6 +13,11 @@ RCT_EXPORT_BLOCKING_SYNCHRONOUS_METHOD(getThreads)
     return @(processorCount);
 }
 
+RCT_EXPORT_BLOCKING_SYNCHRONOUS_METHOD(getTotalMemory)
+{
+    return @([[NSProcessInfo processInfo] physicalMemory]);
+}
+
 // Stub for getCpuFeatures
 RCT_EXPORT_METHOD(getCpuFeatures:(RCTPromiseResolveBlock)resolve
                   rejecter:(RCTPromiseRejectBlock)reject)

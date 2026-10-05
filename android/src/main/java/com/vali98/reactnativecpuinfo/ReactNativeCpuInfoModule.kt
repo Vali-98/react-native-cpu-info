@@ -18,6 +18,14 @@ class ReactNativeCpuInfoModule(reactContext: ReactApplicationContext) :
 
     override fun getThreads(): Double = Runtime.getRuntime().availableProcessors().toDouble()
 
+    override fun getTotalMemory(): Double {
+        val activityManager = reactApplicationContext
+            .getSystemService(android.content.Context.ACTIVITY_SERVICE) as android.app.ActivityManager
+        val memoryInfo = android.app.ActivityManager.MemoryInfo()
+        activityManager.getMemoryInfo(memoryInfo)
+        return memoryInfo.totalMem.toDouble()
+    }
+
     // Make sure this method signature matches your spec
     override fun getCpuFeatures(promise: Promise) {
         val future = executorService.submit<WritableMap> {
